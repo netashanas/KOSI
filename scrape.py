@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from time import sleep
 import csv
 
-def scrape_current_song():
+def scrape_current_song(writer):
     '''
     Get the current song form their webstie
     :return:
@@ -20,5 +20,13 @@ def scrape_current_song():
     raw_to_test= raw.text
     artist_and_title = raw_to_test.split("\n")
     print(artist_and_title)
+    previous_song = None
+    while True:
+        current_song = artist_and_title
+        if current_song != previous_song:
+            writer.writerow(artist_and_title)
+            previous_song = current_song
 
-scrape_current_song()
+
+
+
