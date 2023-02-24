@@ -1,5 +1,0 @@
-from run_constant_process import run_scraping
-from scrape import  scrape_current_song
-if __name__ == '__main__':
-    scrape_current_song()
-
